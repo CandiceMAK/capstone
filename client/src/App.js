@@ -8,6 +8,7 @@ import ProfileCompnent from "./components/profile-component";
 import AuthService from "./services/auth.service";
 import CourseComponent from "./components/course-component";
 import PostCourseComponent from "./components/postCourse-component";
+import SearchComponent from "./components/search-component";
 
 function App() {
   let [currentUser, setCurrentUser] = useState(AuthService.getCurrentUser());
@@ -42,6 +43,12 @@ function App() {
         </Route>
         <Route path="/postcourse" exact>
           <PostCourseComponent
+            currentUser={currentUser}
+            setCurrentUser={setCurrentUser}
+          />
+        </Route>
+        <Route path="/search" exact>
+          <SearchComponent
             currentUser={currentUser}
             setCurrentUser={setCurrentUser}
           />
