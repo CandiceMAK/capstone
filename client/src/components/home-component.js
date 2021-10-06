@@ -6,7 +6,7 @@ const HomeComponent = () => {
       <div class="container py-4">
         <div class="p-5 mb-4 bg-light rounded-3">
           <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Learning System</h1>
+            <h1 class="display-5 fw-bold">iStudyAbroad</h1>
             <p class="col-md-8 fs-4">
               This system is using React.js as front-end framework, and Node.js,
               MongoDB as backend server. This kind of project is called MERN
@@ -22,11 +22,11 @@ const HomeComponent = () => {
         <div class="row align-items-md-stretch">
           <div class="col-md-6">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
-              <h2>As a student</h2>
+              <h2>As a Student</h2>
               <p>
-                Students can register in courses they like. This website is for
-                practice purpose only, so please do not provide any personal
-                information, such as credit card numbers.
+                Students can search courses they like and add in to WishList.
+                This website is for practice purpose only, so please do not
+                provide any personal information, such as credit card numbers.
               </p>
               <button class="btn btn-outline-light" type="button">
                 Login or Register Now
@@ -35,12 +35,11 @@ const HomeComponent = () => {
           </div>
           <div class="col-md-6">
             <div class="h-100 p-5 bg-light border rounded-3">
-              <h2>As an Instructor</h2>
+              <h2>As an Education Institution</h2>
               <p>
-                You can become an instructor by registering as one, and start
-                making online courses. This website is for practice purpose
-                only, so please do not provide any personal information, such as
-                credit card numbers.
+                Education Insitution can promote their courses here. This
+                website is for practice purpose only, so please do not provide
+                any personal information, such as credit card numbers.
               </p>
               <button class="btn btn-outline-secondary" type="button">
                 Login or Register Now
@@ -50,7 +49,7 @@ const HomeComponent = () => {
         </div>
 
         <footer class="pt-3 mt-4 text-muted border-top">
-          &copy; 2021 Wilson Ren
+          &copy; 2021 iStudyAbroad
         </footer>
       </div>
     </main>

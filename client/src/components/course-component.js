@@ -29,7 +29,7 @@ const CourseComponent = (props) => {
           console.log(err);
         });
     } else if (currentUser.user.role == "student") {
-      CourseService.getEnrolledCourses(_id)
+      CourseService.getAddedCourses(_id)
         .then((data) => {
           console.log(data);
           setCourseData(data.data);
@@ -67,12 +67,12 @@ const CourseComponent = (props) => {
         <div>
           <p>Here's the data we got back from server.</p>
           {courseData.map((course) => (
-            <div className="card" style={{ width: "18rem" }}>
+            <div key={course._id} className="card" style={{ width: "18rem" }}>
               <div className="card-body">
                 <h5 className="card-title">{course.title}</h5>
-                <p className="card-text">{course.description}</p>
-                <p>Student Count: {course.students.length}</p>
-                <button className="card-text">{course.price}</button>
+                <p className="card-text">{course.location}</p>
+                <p className="card-text">HKD${course.price}</p>
+                <p>Student Added to WishList: {course.students.length}</p>
                 <br />
               </div>
             </div>
