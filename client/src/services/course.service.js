@@ -21,6 +21,36 @@ class CourseService {
     );
   }
 
+  getAddedCourses(_id) {
+    let token;
+    if (localStorage.getItem("user")) {
+      token = JSON.parse(localStorage.getItem("user")).token;
+    } else {
+      token = "";
+    }
+    console.log(token);
+    return axios.get(API_URL + "/student/" + _id, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
+
+  getCourseByName(name) {
+    let token;
+    if (localStorage.getItem("user")) {
+      token = JSON.parse(localStorage.getItem("user")).token;
+    } else {
+      token = "";
+    }
+    console.log(token);
+    return axios.get(API_URL + "/findByName/" + name, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
+
   get(_id) {
     let token;
     if (localStorage.getItem("user")) {
@@ -29,10 +59,28 @@ class CourseService {
       token = "";
     }
     return axios.get(API_URL + "/eduInt/" + _id, {
-      header: {
+      headers: {
         Authorization: token,
       },
     });
+  }
+
+  add(_id, user_id) {
+    let token;
+    if (localStorage.getItem("user")) {
+      token = JSON.parse(localStorage.getItem("user")).token;
+    } else {
+      token = "";
+    }
+    return axios.post(
+      API_URL + "/add/" + _id,
+      { user_id },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
   }
 }
 
