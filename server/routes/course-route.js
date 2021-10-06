@@ -31,6 +31,30 @@ router.get("/eduInt/:_eduInt_id", (req, res) => {
     });
 });
 
+router.get("/findByName/:name", (req, res) => {
+  let { name } = req.params;
+  Course.find({ title: name })
+    .populate("eduInt", ["username", "email"])
+    .then((courses) => {
+      res.send(courses);
+    })
+    .catch((e) => {
+      res.status(500).send("Cannot get course data.");
+    });
+});
+
+router.get("/student/:_student_id", (req, res) => {
+  let { _student_id } = req.params;
+  Course.find({ students: _student_id })
+    .populate("eduInt", ["username", "email"])
+    .then((courses) => {
+      res.send(courses);
+    })
+    .catch((e) => {
+      res.status(500).send("Cannot get course data.");
+    });
+});
+
 router.get("/:_id", (req, res) => {
   let { _id } = req.params;
   Course.findOne({ _id })
@@ -65,6 +89,19 @@ router.post("/", async (req, res) => {
     res.status(200).send("New course has been saved.");
   } catch (err) {
     res.status(400).send("Cannot save course.");
+  }
+});
+
+router.post("/add/:_id", async (req, res) => {
+  let { _id } = req.params;
+  let { user_id } = req.body;
+  try {
+    let course = await Course.findOne({ _id });
+    course.students.push(user_id);
+    await course.save();
+    res.send("Added to WishList.");
+  } catch (err) {
+    res.send(err);
   }
 });
 
